@@ -26,8 +26,7 @@
 								</div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+										<a href="{{ url('login/google') }}" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a>
 									</p>
 								</div>
 							</div>
@@ -66,7 +65,7 @@
 	</section>
 
 	<script src="{{url('assets/js/jquery-3.6.0.min.js')}}"></script>
-	<script src="{{url('assets/js/bootstrap.min.js')}}"></script>
+	<script src="{{url('assets/js/bootstrap.bundle.min.js')}}"></script>
 	<script src="{{url('assets/js/logreg.js')}}"></script>
 
 </body>

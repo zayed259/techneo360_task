@@ -97,8 +97,8 @@
                                     @endif
                                 @elseif (Auth::guard('employee')->check())
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('employee')->user()->name}}</span>
-                                    @if (Auth::guard('employee')->user()->profile)
-                                        <img src="{{url(Storage::url(Auth::guard('employee')->user()->profile->image))}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
+                                    @if (Auth::guard('employee')->user()->avatar)
+                                        <img src="{{Auth::guard('employee')->user()->avatar}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
                                     @else
                                         <img src="{{url('assets/img/avatars/avatar.jpg')}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
                                     @endif
