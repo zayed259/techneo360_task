@@ -11558,6 +11558,7 @@ a:focus {
 
 .sidebar .nav-item.active .nav-link {
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .nav-item .collapse {
@@ -12632,6 +12633,7 @@ body.sidebar-toggled footer.sticky-footer {
   text-align: left;
   list-style: none;
 }
+
 /* contact list start */
 
 .head-contact-div {
@@ -12660,6 +12662,7 @@ body.sidebar-toggled footer.sticky-footer {
   margin: 0;
   padding: 0;
 }
+
 .contact-div .contact-list span {
   font-size: 0.8rem;
   font-weight: 400;
@@ -12676,6 +12679,7 @@ body.sidebar-toggled footer.sticky-footer {
   list-style: none;
   /* background-color: #093b29; */
 }
+
 .contact-div .contact-list .contact-list-photo {
   max-width: 100%;
   width: 20rem;
@@ -12690,7 +12694,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 /* contact list end */
 
-.contact-details{
+.contact-details {
   background-image: url("../img/photos/contact_bg.jpg");
   background-size: cover;
   background-position: top;
@@ -12699,17 +12703,19 @@ body.sidebar-toggled footer.sticky-footer {
   background-repeat: no-repeat;
 }
 
-.contact-details .contact-photo{
+.contact-details .contact-photo {
   text-align: center;
   padding-top: 0.8rem;
 }
-.contact-details .contact-photo img{
+
+.contact-details .contact-photo img {
   width: 7rem;
   height: 7rem;
   border-radius: 50%;
   border: 0.2rem solid #fff;
 }
-.contact-details .name-contact h1{
+
+.contact-details .name-contact h1 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #fff;
@@ -12718,7 +12724,8 @@ body.sidebar-toggled footer.sticky-footer {
   margin-bottom: 0;
   text-align: center;
 }
-.contact-details .name-contact p{
+
+.contact-details .name-contact p {
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
@@ -12726,7 +12733,8 @@ body.sidebar-toggled footer.sticky-footer {
   /* margin: 0.5rem 0; */
   text-align: center;
 }
-.contact-details .icons a{
+
+.contact-details .icons a {
   text-align: center;
   font-size: 0.7rem;
   width: 1.8rem;
@@ -12737,12 +12745,13 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #7978FF;
   transition: all 0.3s ease-in-out;
 }
-.contact-details .icons a:hover{
+
+.contact-details .icons a:hover {
   color: #3F0071;
   background-color: #EEF1FF;
 }
 
-.contact-info{
+.contact-info {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
@@ -12751,7 +12760,7 @@ body.sidebar-toggled footer.sticky-footer {
   height: 100%;
 }
 
-.contact-info h1{
+.contact-info h1 {
   font-size: 0.8rem;
   font-weight: 500;
   color: #3F0071;
@@ -12760,7 +12769,7 @@ body.sidebar-toggled footer.sticky-footer {
   padding: 0;
 }
 
-.contact-info p{
+.contact-info p {
   font-size: 0.8rem;
   font-weight: 400;
   color: blue;
@@ -12769,7 +12778,7 @@ body.sidebar-toggled footer.sticky-footer {
   padding: 0;
 }
 
-.contact-ruller{
+.contact-ruller {
   width: 95%;
   border: 0.05rem solid #277BC0;
   height: 100%;
@@ -12778,7 +12787,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 
 @media (min-width: 360px) {
-  .contact-details{
+  .contact-details {
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -12786,17 +12795,19 @@ body.sidebar-toggled footer.sticky-footer {
     background-repeat: no-repeat;
   }
 
-  .contact-details .contact-photo{
+  .contact-details .contact-photo {
     text-align: center;
     padding-top: 1rem;
   }
-  .contact-details .contact-photo img{
+
+  .contact-details .contact-photo img {
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
     border: 0.2rem solid #fff;
   }
-  .contact-details .name-contact h1{
+
+  .contact-details .name-contact h1 {
     font-size: 1.3rem;
     font-weight: 600;
     color: #fff;
@@ -12805,14 +12816,16 @@ body.sidebar-toggled footer.sticky-footer {
     margin-bottom: 0;
     text-align: center;
   }
-  .contact-details .name-contact p{
+
+  .contact-details .name-contact p {
     font-size: 1.1rem;
     font-weight: 500;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
   }
-  .contact-details .icons a{
+
+  .contact-details .icons a {
     text-align: center;
     font-size: 0.9rem;
     width: 2.1rem;
@@ -12823,7 +12836,7 @@ body.sidebar-toggled footer.sticky-footer {
     transition: all 0.3s ease-in-out;
   }
 
-  .contact-info{
+  .contact-info {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
@@ -12831,8 +12844,8 @@ body.sidebar-toggled footer.sticky-footer {
     width: 100%;
     height: 100%;
   }
-  
-  .contact-info h1{
+
+  .contact-info h1 {
     font-size: 1rem;
     font-weight: 600;
     color: #3F0071;
@@ -12840,8 +12853,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin: 0;
     padding: 0;
   }
-  
-  .contact-info p{
+
+  .contact-info p {
     font-size: 1rem;
     font-weight: 500;
     color: blue;
@@ -12849,8 +12862,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin: 0;
     padding: 0;
   }
-  
-  .contact-ruller{
+
+  .contact-ruller {
     width: 95%;
     border: 0.05rem solid #277BC0;
     height: 100%;
@@ -12859,64 +12872,67 @@ body.sidebar-toggled footer.sticky-footer {
 
   /* contact list start */
 
-.head-contact-div {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 1rem;
-  width: 98%;
-  height: 100%;
+  .head-contact-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    width: 98%;
+    height: 100%;
+  }
+
+  .contact-div {
+    width: 100%;
+    /* background-color: #093b29; */
+  }
+
+  .contact-div .contact-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3F0071;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-div .contact-list span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: blue;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-div .contact-list .contact-list-row {
+    max-width: 100%;
+    width: 100rem;
+    text-decoration: none;
+    list-style: none;
+    /* background-color: #093b29; */
+  }
+
+  .contact-div .contact-list .contact-list-photo {
+    max-width: 100%;
+    width: 20rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-div .contact-list:hover {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  /* contact list end */
+
 }
 
-.contact-div {
-  width: 100%;
-  /* background-color: #093b29; */
-}
-
-.contact-div .contact-list {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3F0071;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-}
-.contact-div .contact-list span {
-  font-size: 1rem;
-  font-weight: 400;
-  color: blue;
-  text-transform: lowercase;
-  margin: 0;
-  padding: 0;
-}
-
-.contact-div .contact-list .contact-list-row {
-  max-width: 100%;
-  width: 100rem;
-  text-decoration: none;
-  list-style: none;
-  /* background-color: #093b29; */
-}
-.contact-div .contact-list .contact-list-photo {
-  max-width: 100%;
-  width: 20rem;
-  padding: 0 0.5rem;
-}
-
-.contact-div .contact-list:hover {
-  list-style: none;
-  text-decoration: none;
-}
-
-/* contact list end */
-
-}
 @media (min-width: 576px) {
-  .contact-details{
+  .contact-details {
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -12924,17 +12940,19 @@ body.sidebar-toggled footer.sticky-footer {
     background-repeat: no-repeat;
   }
 
-  .contact-details .contact-photo{
+  .contact-details .contact-photo {
     text-align: center;
     padding-top: 1rem;
   }
-  .contact-details .contact-photo img{
+
+  .contact-details .contact-photo img {
     width: 9rem;
     height: 9rem;
     border-radius: 50%;
     border: 0.2rem solid #fff;
   }
-  .contact-details .name-contact h1{
+
+  .contact-details .name-contact h1 {
     font-size: 1.4rem;
     font-weight: 600;
     color: #fff;
@@ -12943,7 +12961,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin-bottom: 0;
     text-align: center;
   }
-  .contact-details .name-contact p{
+
+  .contact-details .name-contact p {
     font-size: 1.2rem;
     font-weight: 500;
     color: #fff;
@@ -12951,7 +12970,8 @@ body.sidebar-toggled footer.sticky-footer {
     /* margin: 0.5rem 0; */
     text-align: center;
   }
-  .contact-details .icons a{
+
+  .contact-details .icons a {
     text-align: center;
     font-size: 1rem;
     width: 2.2rem;
@@ -12962,7 +12982,7 @@ body.sidebar-toggled footer.sticky-footer {
     transition: all 0.3s ease-in-out;
   }
 
-  .contact-info{
+  .contact-info {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
@@ -12970,8 +12990,8 @@ body.sidebar-toggled footer.sticky-footer {
     width: 100%;
     height: 100%;
   }
-  
-  .contact-info h1{
+
+  .contact-info h1 {
     font-size: 1rem;
     font-weight: 600;
     color: #3F0071;
@@ -12979,8 +12999,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin: 0;
     padding: 0;
   }
-  
-  .contact-info p{
+
+  .contact-info p {
     font-size: 1rem;
     font-weight: 500;
     color: blue;
@@ -12988,8 +13008,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin: 0;
     padding: 0;
   }
-  
-  .contact-ruller{
+
+  .contact-ruller {
     width: 95%;
     border: 0.05rem solid #277BC0;
     height: 100%;
@@ -12998,63 +13018,65 @@ body.sidebar-toggled footer.sticky-footer {
 
   /* contact list start */
 
-.head-contact-div {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 1rem;
-  width: 98%;
-  height: 100%;
-}
+  .head-contact-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    width: 98%;
+    height: 100%;
+  }
 
-.contact-div {
-  width: 100%;
-}
+  .contact-div {
+    width: 100%;
+  }
 
-.contact-div .contact-list {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3F0071;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-}
-.contact-div .contact-list span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: blue;
-  text-transform: lowercase;
-  margin: 0;
-  padding: 0;
-}
+  .contact-div .contact-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3F0071;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
 
-.contact-div .contact-list .contact-list-row {
-  max-width: 100%;
-  width: 100rem;
-  text-decoration: none;
-  list-style: none;
-}
-.contact-div .contact-list .contact-list-photo {
-  max-width: 100%;
-  width: 20rem;
-  padding: 0 0.5rem;
-}
+  .contact-div .contact-list span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: blue;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+  }
 
-.contact-div .contact-list:hover {
-  list-style: none;
-  text-decoration: none;
-}
+  .contact-div .contact-list .contact-list-row {
+    max-width: 100%;
+    width: 100rem;
+    text-decoration: none;
+    list-style: none;
+  }
 
-/* contact list end */
+  .contact-div .contact-list .contact-list-photo {
+    max-width: 100%;
+    width: 20rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-div .contact-list:hover {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  /* contact list end */
 
 }
 
 @media (min-width: 768px) {
-  .contact-details{
+  .contact-details {
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -13062,17 +13084,19 @@ body.sidebar-toggled footer.sticky-footer {
     background-repeat: no-repeat;
   }
 
-  .contact-details .contact-photo{
+  .contact-details .contact-photo {
     text-align: center;
     padding-top: 1rem;
   }
-  .contact-details .contact-photo img{
+
+  .contact-details .contact-photo img {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
     border: 0.2rem solid #fff;
   }
-  .contact-details .name-contact h1{
+
+  .contact-details .name-contact h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
@@ -13081,7 +13105,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin-bottom: 0;
     text-align: center;
   }
-  .contact-details .name-contact p{
+
+  .contact-details .name-contact p {
     font-size: 1.3rem;
     font-weight: 500;
     color: #fff;
@@ -13089,7 +13114,8 @@ body.sidebar-toggled footer.sticky-footer {
     /* margin: 0.5rem 0; */
     text-align: center;
   }
-  .contact-details .icons a{
+
+  .contact-details .icons a {
     text-align: center;
     font-size: 1.1rem;
     width: 2.3rem;
@@ -13102,63 +13128,65 @@ body.sidebar-toggled footer.sticky-footer {
 
   /* contact list start */
 
-.head-contact-div {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 1rem;
-  width: 98%;
-  height: 100%;
-}
+  .head-contact-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    width: 98%;
+    height: 100%;
+  }
 
-.contact-div {
-  width: 100%;
-  /* background-color: #093b29; */
-}
+  .contact-div {
+    width: 100%;
+    /* background-color: #093b29; */
+  }
 
-.contact-div .contact-list {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3F0071;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-}
-.contact-div .contact-list span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: blue;
-  text-transform: lowercase;
-  margin: 0;
-  padding: 0;
-}
+  .contact-div .contact-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3F0071;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
 
-.contact-div .contact-list .contact-list-row {
-  max-width: 100%;
-  width: 100rem;
-  text-decoration: none;
-  list-style: none;
-}
-.contact-div .contact-list .contact-list-photo {
-  max-width: 100%;
-  width: 20rem;
-  padding: 0 0.5rem;
-}
+  .contact-div .contact-list span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: blue;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+  }
 
-.contact-div .contact-list:hover {
-  list-style: none;
-  text-decoration: none;
-}
+  .contact-div .contact-list .contact-list-row {
+    max-width: 100%;
+    width: 100rem;
+    text-decoration: none;
+    list-style: none;
+  }
 
-/* contact list end */
+  .contact-div .contact-list .contact-list-photo {
+    max-width: 100%;
+    width: 20rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-div .contact-list:hover {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  /* contact list end */
 }
 
 @media (min-width: 992px) {
-  .contact-details{
+  .contact-details {
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -13166,17 +13194,19 @@ body.sidebar-toggled footer.sticky-footer {
     background-repeat: no-repeat;
   }
 
-  .contact-details .contact-photo{
+  .contact-details .contact-photo {
     text-align: center;
     padding-top: 1rem;
   }
-  .contact-details .contact-photo img{
+
+  .contact-details .contact-photo img {
     width: 11rem;
     height: 11rem;
     border-radius: 50%;
     border: 0.2rem solid #fff;
   }
-  .contact-details .name-contact h1{
+
+  .contact-details .name-contact h1 {
     font-size: 1.6rem;
     font-weight: 600;
     color: #fff;
@@ -13185,7 +13215,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin-bottom: 0;
     text-align: center;
   }
-  .contact-details .name-contact p{
+
+  .contact-details .name-contact p {
     font-size: 1.4rem;
     font-weight: 500;
     color: #fff;
@@ -13193,7 +13224,8 @@ body.sidebar-toggled footer.sticky-footer {
     /* margin: 0.5rem 0; */
     text-align: center;
   }
-  .contact-details .icons a{
+
+  .contact-details .icons a {
     text-align: center;
     font-size: 1.1rem;
     width: 2.5rem;
@@ -13206,7 +13238,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 @media (min-width: 1200px) {
-  .contact-details{
+  .contact-details {
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -13214,17 +13246,19 @@ body.sidebar-toggled footer.sticky-footer {
     background-repeat: no-repeat;
   }
 
-  .contact-details .contact-photo{
+  .contact-details .contact-photo {
     text-align: center;
     padding-top: 1rem;
   }
-  .contact-details .contact-photo img{
+
+  .contact-details .contact-photo img {
     width: 12rem;
     height: 12rem;
     border-radius: 50%;
     border: 0.2rem solid #fff;
   }
-  .contact-details .name-contact h1{
+
+  .contact-details .name-contact h1 {
     font-size: 1.7rem;
     font-weight: 600;
     color: #fff;
@@ -13233,7 +13267,8 @@ body.sidebar-toggled footer.sticky-footer {
     margin-bottom: 0;
     text-align: center;
   }
-  .contact-details .name-contact p{
+
+  .contact-details .name-contact p {
     font-size: 1.5rem;
     font-weight: 500;
     color: #fff;
@@ -13241,7 +13276,8 @@ body.sidebar-toggled footer.sticky-footer {
     /* margin: 0.5rem 0; */
     text-align: center;
   }
-  .contact-details .icons a{
+
+  .contact-details .icons a {
     text-align: center;
     font-size: 1.2rem;
     width: 2.6rem;

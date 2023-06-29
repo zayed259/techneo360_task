@@ -116,6 +116,7 @@ class AuthenticatedSessionController extends Controller
         $user = Employee::where('email', '=', $data->email)->first();
         if (!$user) {
             $user = new Employee();
+            $user->employee_id = rand(100000, 999999);
             $user->name = $data->name;
             $user->email = $data->email;
             $user->provider_id = $data->id;

@@ -23,13 +23,14 @@ class AdminSeeder extends Seeder
             ]);
         }
 
-        $employee = Employee::where('email', 'employee@gmail.com')->first();
-        if (is_null($employee)) {
-            Employee::create([
-                'name' => 'Employee',
-                'email' => 'employee@gmail.com',
-                'password' => Hash::make('employee123'),
-            ]);
-        }
+        // $employee = Employee::where('email', 'employee@gmail.com')->first();
+        // if (is_null($employee)) {
+        //     Employee::create([
+        //         'employee_id' => '122167',
+        //         'name' => 'Employee',
+        //         'email' => 'employee@gmail.com',
+        //         'password' => Hash::make('employee123'),
+        //     ]);
+        // }
     }
 }

@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('contact')}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@if (Auth::guard('admin')->check()) {{route('admin.dashboard')}} @elseif (Auth::guard('employee')->check()) {{route('employee.dashboard')}} @endif">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="{{url('assets/img/logo.png')}}" alt="Logo" height="40px">
                 </div>
@@ -44,15 +44,40 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
+            @if (Auth::guard('admin')->check())
+            <li class="nav-item @if (Request::segment(2) == 'dashboard') active @endif">
+                <a class="nav-link" href="{{route('admin.dashboard')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Admin Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item @if (Request::segment(2) == 'employee') active @endif">
+                <a class="nav-link" href="{{route('admin.employee')}}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Employee List</span>
+                </a>
+            </li>
+            @elseif (Auth::guard('employee')->check())
+            <li class="nav-item @if (Request::segment(2) == 'dashboard') active @endif">
+                <a class="nav-link" href="{{route('employee.dashboard')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Employee Dashboard</span>
+                </a>
+            </li>
+            @endif
             <li class="nav-item">
                 <a class="nav-link" href="{{url('contact')}}">
                     <i class="far fa-fw fa-address-book"></i>
                     <span>Phonebook</span>
                 </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{url('favourite')}}">
                     <i class="fas fa-fw fa-star"></i>
                     <span>Favourites</span>
                 </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{url('about')}}">
                     <i class="fas fa-fw fa-info-circle"></i>
                     <span>About</span>
@@ -184,9 +209,9 @@
     <script src="{{url('assets/js/admin.min.js')}}"></script>
 
     <script>
-        // $(document).ready( function () {
-        // 	$('#dataTable').DataTable();
-        // });
+        $(document).ready( function () {
+        	$('#dataTable').DataTable();
+        });
 
         $.ajaxSetup({
             headers: {
