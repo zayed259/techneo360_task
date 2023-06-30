@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\EmployeeContact;
 use App\Models\EmployeeDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -88,7 +89,7 @@ class EmployeeController extends Controller
             14 => 'Security',
             15 => 'Other',
         ];
-        
+
         $blood_group_array = [
             1 => 'A+',
             2 => 'A-',
@@ -99,7 +100,7 @@ class EmployeeController extends Controller
             7 => 'AB+',
             8 => 'AB-',
         ];
-        
+
         $marital_status_array = [
             1 => 'Married',
             2 => 'Unmarried',
@@ -225,7 +226,7 @@ class EmployeeController extends Controller
             14 => 'Security',
             15 => 'Other',
         ];
-        
+
         $blood_group_array = [
             1 => 'A+',
             2 => 'A-',
@@ -236,7 +237,7 @@ class EmployeeController extends Controller
             7 => 'AB+',
             8 => 'AB-',
         ];
-        
+
         $marital_status_array = [
             1 => 'Married',
             2 => 'Unmarried',
@@ -368,7 +369,7 @@ class EmployeeController extends Controller
             14 => 'Security',
             15 => 'Other',
         ];
-        
+
         $blood_group_array = [
             1 => 'A+',
             2 => 'A-',
@@ -379,7 +380,7 @@ class EmployeeController extends Controller
             7 => 'AB+',
             8 => 'AB-',
         ];
-        
+
         $marital_status_array = [
             1 => 'Married',
             2 => 'Unmarried',
@@ -452,7 +453,7 @@ class EmployeeController extends Controller
             ]
         );
 
-        $employee_detail = EmployeeDetail::find($id);
+        $employee_detail = EmployeeDetail::where('employee_id', $id)->first();
         $employee_detail->father_name = $request->father_name;
         $employee_detail->mother_name = $request->mother_name;
         $employee_detail->address = $request->address;
@@ -467,12 +468,14 @@ class EmployeeController extends Controller
         $employee_detail->marital_status = $request->marital_status;
         $employee_detail->save();
 
-        $image_path = public_path("/images/employee/" . $employee_detail->photo);
-        if (file_exists($image_path)) {
-            unlink($image_path);
-        }
-
         if ($request->hasFile('photo')) {
+            if ($employee_detail->photo != null) {
+                $image_path = public_path("/images/employee/" . $employee_detail->photo);
+                if (file_exists($image_path)) {
+                    unlink($image_path);
+                }
+            }
+
             $image = $request->file('photo');
             $name = $request->employee_id . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images/employee');
@@ -482,5 +485,121 @@ class EmployeeController extends Controller
         }
 
         return redirect()->route('admin.employee_details.show', $request->employee_id)->with('message', 'Employee detail updated successfully.');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function createEmployeeContact(string $id)
+    {
+        return view('admin.employee.create_employee_contact')->with('employee_id', $id);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeEmployeeContact(Request $request)
+    {
+        // dd($request->all());
+        $request->validate(
+            [
+                'employee_id' => 'required|string|max:255|unique:employee_contacts',
+                'phone' => 'required|string|max:255',
+                'office_phone' => 'nullable|string|max:255',
+                'email' => 'nullable|string|email|max:255',
+                'optional_email' => 'nullable|string|email|max:255',
+                'emergency_name' => 'nullable|string|max:255',
+                'emergency_relation' => 'nullable|string|max:255',
+                'emergency_phone' => 'nullable|string|max:255',
+                'facebook' => 'nullable|string|max:255',
+                'twitter' => 'nullable|string|max:255',
+                'instagram' => 'nullable|string|max:255',
+                'linkedin' => 'nullable|string|max:255',
+                'whatsapp' => 'nullable|string|max:255',
+                'website' => 'nullable|string|max:255',
+            ]
+        );
+
+        $employee_contact = new EmployeeContact();
+        $employee_contact->employee_id = $request->employee_id;
+        $employee_contact->phone = $request->phone;
+        $employee_contact->office_phone = $request->office_phone;
+        $employee_contact->email = $request->email;
+        $employee_contact->optional_email = $request->optional_email;
+        $employee_contact->emergency_name = $request->emergency_name;
+        $employee_contact->emergency_relation = $request->emergency_relation;
+        $employee_contact->emergency_phone = $request->emergency_phone;
+        $employee_contact->facebook = $request->facebook;
+        $employee_contact->twitter = $request->twitter;
+        $employee_contact->instagram = $request->instagram;
+        $employee_contact->linkedin = $request->linkedin;
+        $employee_contact->whatsapp = $request->whatsapp;
+        $employee_contact->website = $request->website;
+        $employee_contact->save();
+
+        return redirect()->route('admin.employee_contacts.show', $request->employee_id)->with('message', 'Employee contact created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function showEmployeeContact(string $id)
+    {
+        $employee_contact = EmployeeContact::where('employee_id', $id)->with(['employee'])->first();
+        // dd($employee_contact);
+        return view('admin.employee.show_employee_contact')->with(compact('employee_contact'))->with('employee_id', $id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function editEmployeeContact(string $id)
+    {
+        $employee_contact = EmployeeContact::where('employee_id', $id)->with(['employee'])->first();
+        // dd($employee_contact);
+        return view('admin.employee.edit_employee_contact')->with(compact('employee_contact'))->with('employee_id', $id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateEmployeeContact(Request $request, string $id)
+    {
+        // dd($id);
+        $request->validate(
+            [
+                'phone' => 'required|string|max:255',
+                'office_phone' => 'nullable|string|max:255',
+                'email' => 'nullable|string|email|max:255',
+                'optional_email' => 'nullable|string|email|max:255',
+                'emergency_name' => 'nullable|string|max:255',
+                'emergency_relation' => 'nullable|string|max:255',
+                'emergency_phone' => 'nullable|string|max:255',
+                'facebook' => 'nullable|string|max:255',
+                'twitter' => 'nullable|string|max:255',
+                'instagram' => 'nullable|string|max:255',
+                'linkedin' => 'nullable|string|max:255',
+                'whatsapp' => 'nullable|string|max:255',
+                'website' => 'nullable|string|max:255',
+            ]
+        );
+
+        $employee_contact = EmployeeContact::where('employee_id', $id)->first();
+        $employee_contact->phone = $request->phone;
+        $employee_contact->office_phone = $request->office_phone;
+        $employee_contact->email = $request->email;
+        $employee_contact->optional_email = $request->optional_email;
+        $employee_contact->emergency_name = $request->emergency_name;
+        $employee_contact->emergency_relation = $request->emergency_relation;
+        $employee_contact->emergency_phone = $request->emergency_phone;
+        $employee_contact->facebook = $request->facebook;
+        $employee_contact->twitter = $request->twitter;
+        $employee_contact->instagram = $request->instagram;
+        $employee_contact->linkedin = $request->linkedin;
+        $employee_contact->whatsapp = $request->whatsapp;
+        $employee_contact->website = $request->website;
+        $employee_contact->save();
+
+        return redirect()->route('admin.employee_contacts.show', $request->employee_id)->with('message', 'Employee contact updated successfully.');
     }
 }

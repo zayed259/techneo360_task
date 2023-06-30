@@ -39,18 +39,30 @@ Employee Details
                         <td>{{ $employee_details->address }}</td>
 
                         <th>Marital Status</th>
-                        <td>{{ $marital_status_array[$employee_details->marital_status] }}</td>
+                        <td>
+                            @if($employee_details->marital_status)
+                            {{ $marital_status_array[$employee_details->marital_status] }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th>Salary</th>
                         <td>{{ $employee_details->salary }}</td>
 
                         <th>Designation</th>
-                        <td>{{ $designation_array[$employee_details->designation] }}</td>
+                        <td>
+                            @if($employee_details->designation)
+                            {{ $designation_array[$employee_details->designation] }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th>Department</th>
-                        <td>{{ $department_array[$employee_details->department] }}</td>
+                        <td>
+                            @if($employee_details->department)
+                            {{ $department_array[$employee_details->department] }}
+                            @endif
+                        </td>
 
                         <th>Joining Date</th>
                         <td>{{ $employee_details->joining_date }}</td>
@@ -60,14 +72,22 @@ Employee Details
                         <td>{{ $employee_details->nid }}</td>
 
                         <th>Bank Name</th>
-                        <td>{{ $bank_name_array[$employee_details->bank_name] }}</td>
+                        <td>
+                            @if($employee_details->bank_name)
+                            {{ $bank_name_array[$employee_details->bank_name] }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th>Bank Account</th>
                         <td>{{ $employee_details->bank_account }}</td>
 
                         <th>Blood Group</th>
-                        <td>{{ $blood_group_array[$employee_details->blood_group] }}</td>
+                        <td>
+                            @if($employee_details->blood_group)
+                            {{ $blood_group_array[$employee_details->blood_group] }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th>Photo</th>

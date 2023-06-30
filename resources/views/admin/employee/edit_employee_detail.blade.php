@@ -16,7 +16,7 @@ Edit Employee Details
         <div class="card-body">
             @include('partial.flash')
             @include("partial.error")
-            <form method="post" action="{{ route('admin.employee_details.update', $employee_details->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('admin.employee_details.update', $employee_details->employee_id) }}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group row">

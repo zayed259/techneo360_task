@@ -38,6 +38,13 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth:admin', 'verified'])-
     Route::get('/employee_details/{id}/edit', [EmployeeController::class, 'editEmployeeDetail'])->name('employee_details.edit');
     Route::put('/employee_details/{id}', [EmployeeController::class, 'updateEmployeeDetail'])->name('employee_details.update');
 
+    # Employee contact routes
+    Route::get('/employee_contacts/create/{id}', [EmployeeController::class, 'createEmployeeContact'])->name('employee_contacts.create');
+    Route::post('/employee_contacts/store', [EmployeeController::class, 'storeEmployeeContact'])->name('employee_contacts.store');
+    Route::get('/employee_contacts/{id}', [EmployeeController::class, 'showEmployeeContact'])->name('employee_contacts.show');
+    Route::get('/employee_contacts/{id}/edit', [EmployeeController::class, 'editEmployeeContact'])->name('employee_contacts.edit');
+    Route::put('/employee_contacts/{id}', [EmployeeController::class, 'updateEmployeeContact'])->name('employee_contacts.update');
+
 
 });
 
