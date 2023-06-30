@@ -15,7 +15,7 @@ Employee List
         <div class="card-body">
             <!-- table  -->
             <div class="table-responsive">
-                <table class="table table-bordered table-hover text-center" id="dataTable" width="100%" cellspacing="0" style="border-color:black;">
+                <table class="table table-bordered border-primary table-hover text-center" id="dataTable" width="100%" cellspacing="0">
                     <!-- table head -->
                     <thead class="bg-primary text-white">
                         <tr>
@@ -54,7 +54,7 @@ Employee List
                                             <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                                             Edit
                                         </a>
-                                        <a class="dropdown-item" href="">
+                                        <a class="dropdown-item" href="{{ route('admin.employee_details.show', $employee->id) }}">
                                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                             Details
                                         </a>

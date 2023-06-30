@@ -65,24 +65,6 @@
                 </a>
             </li>
             @endif
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('contact')}}">
-                    <i class="far fa-fw fa-address-book"></i>
-                    <span>Phonebook</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('favourite')}}">
-                    <i class="fas fa-fw fa-star"></i>
-                    <span>Favourites</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('about')}}">
-                    <i class="fas fa-fw fa-info-circle"></i>
-                    <span>About</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

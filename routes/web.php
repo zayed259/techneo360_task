@@ -31,6 +31,14 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth:admin', 'verified'])-
     Route::get('/employee/{id}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
     Route::put('/employee/{id}', [EmployeeController::class, 'update'])->name('employee.update');
 
+    # Employee detail routes
+    Route::get('/employee_details/create/{id}', [EmployeeController::class, 'createEmployeeDetail'])->name('employee_details.create');
+    Route::post('/employee_details/store', [EmployeeController::class, 'storeEmployeeDetail'])->name('employee_details.store');
+    Route::get('/employee_details/{id}', [EmployeeController::class, 'show'])->name('employee_details.show');
+    Route::get('/employee_details/{id}/edit', [EmployeeController::class, 'editEmployeeDetail'])->name('employee_details.edit');
+    Route::put('/employee_details/{id}', [EmployeeController::class, 'updateEmployeeDetail'])->name('employee_details.update');
+
+
 });
 
 Route::get('/', function () {

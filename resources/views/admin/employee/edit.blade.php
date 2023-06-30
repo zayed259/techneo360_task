@@ -54,7 +54,7 @@ Update Employee
                     </div>
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-primary btn-block" type="submit" value="Add Employee">
+                    <input class="btn btn-primary btn-block" type="submit" value="Update Employee">
                 </div>
             </form>
         </div>
