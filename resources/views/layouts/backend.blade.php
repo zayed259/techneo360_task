@@ -21,11 +21,11 @@
     <link href="{{url('assets/css/fontawesome.all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -64,6 +64,12 @@
                     <span>Employee Dashboard</span>
                 </a>
             </li>
+            <li class="nav-item @if (Request::segment(2) == 'attendance') active @endif">
+                <a class="nav-link" href="{{route('employee.attendance')}}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Attendance List</span>
+                </a>
+            </li>
             @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -96,19 +102,19 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Auth::guard('admin')->check())
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('admin')->user()->name}}</span>
-                                    @if (Auth::guard('admin')->user()->profile)
-                                        <img src="{{url(Storage::url(Auth::guard('admin')->user()->profile->image))}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
-                                    @else
-                                        <img src="{{url('assets/img/avatars/avatar.jpg')}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
-                                    @endif
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('admin')->user()->name}}</span>
+                                @if (Auth::guard('admin')->user()->profile)
+                                <img src="{{url(Storage::url(Auth::guard('admin')->user()->profile->image))}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
+                                @else
+                                <img src="{{url('assets/img/avatars/avatar.jpg')}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
+                                @endif
                                 @elseif (Auth::guard('employee')->check())
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('employee')->user()->name}}</span>
-                                    @if (Auth::guard('employee')->user()->avatar)
-                                        <img src="{{Auth::guard('employee')->user()->avatar}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
-                                    @else
-                                        <img src="{{url('assets/img/avatars/avatar.jpg')}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
-                                    @endif
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('employee')->user()->name}}</span>
+                                @if (Auth::guard('employee')->user()->avatar)
+                                <img src="{{Auth::guard('employee')->user()->avatar}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
+                                @else
+                                <img src="{{url('assets/img/avatars/avatar.jpg')}}" class="img-profile rounded-circle" alt="Profile Image" width="40px">
+                                @endif
                                 @endif
                             </a>
                             <!-- Dropdown - User Information -->
@@ -131,9 +137,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
                     @yield('content')
-                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -184,15 +188,17 @@
 
     <script src="{{url('assets/js/jquery-3.6.0.min.js')}}"></script>
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="{{url('assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{url('assets/js/jquery.easing.min.js')}}"></script>
     <script src="{{url('assets/js/admin.min.js')}}"></script>
+    <script src="{{url('assets/js/script.js')}}"></script>
 
     <script>
-        $(document).ready( function () {
-        	$('#dataTable').DataTable();
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
         });
 
         $.ajaxSetup({

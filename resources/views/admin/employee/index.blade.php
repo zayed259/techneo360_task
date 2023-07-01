@@ -10,7 +10,10 @@ Employee List
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary float-left">Employee List</h6>
             <!-- add employee -->
-            <a href="{{ route('admin.employee.create') }}" class="btn btn-sm btn-primary float-right ">Add Employee</a>
+            <a href="{{ route('admin.employee.create') }}" class="btn btn-sm btn-primary float-right ">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                Add Employee
+            </a>
         </div>
         <div class="card-body">
             <!-- table  -->

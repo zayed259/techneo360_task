@@ -10,9 +10,15 @@ Employee Details
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary float-left">Employee Details</h6>
             @if($employee_details == null)
-            <a href="{{ route('admin.employee_details.create', $employee_id) }}" class="btn btn-sm btn-primary float-right ">Add Employee Details</a>
+            <a href="{{ route('admin.employee_details.create', $employee_id) }}" class="btn btn-sm btn-primary float-right ">
+                <i class="fas fa-plus fa-sm text-white-50"></i>
+                Add Employee Details
+            </a>
             @else
-            <a href="{{ route('admin.employee_details.edit', $employee_details->employee_id) }}" class="btn btn-sm btn-primary float-right ">Edit Employee Details</a>
+            <a href="{{ route('admin.employee_details.edit', $employee_details->employee_id) }}" class="btn btn-sm btn-primary float-right ">
+                <i class="fas fa-edit fa-sm text-white-50"></i>
+                Edit Employee Details
+            </a>
             @endif
         </div>
         @if($employee_details != null)
