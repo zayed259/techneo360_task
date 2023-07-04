@@ -21,24 +21,6 @@ Attendance List
         </div>
         <div class="card-body">
             <div class="table-responsive" id="showAllRecords">
-                <table class="table table-bordered border-primary table-hover text-center" id="" width="100%" cellspacing="0">
-                    <thead class="bg-primary text-white">
-                        <tr>
-                            <th>#</th>
-                            <th>Date</th>
-                            <th>Day</th>
-                            <th>In Time</th>
-                            <th>Out Time</th>
-                            <th>Actual In</th>
-                            <th>Actual Out</th>
-                            <th>Late</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
@@ -63,7 +45,7 @@ Attendance List
                     $('#attendanceButton').html('<i class="fas fa-spinner fa-spin"></i>');
                 },
                 success: function(response) {
-                    if (response) {
+                    if (response.status == 'success') {
                         $('#attendanceButton').html('<i class="fas fa-fingerprint"></i>');
                         Swal.fire({
                             position: 'center',
@@ -72,8 +54,18 @@ Attendance List
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        showAllRecords();
                     }
+                    if (response.status == 'error') {
+                        $('#attendanceButton').html('<i class="fas fa-fingerprint"></i>');
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: response.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    showAllRecords();
                 },
                 error: function(response) {
                     $('#attendanceButton').html('<i class="fas fa-fingerprint"></i>');
@@ -100,7 +92,7 @@ Attendance List
                 },
                 dataType: 'JSON',
                 success: function(response) {
-                    $('#tbody').html(response.html);
+                    $('#showAllRecords').html(response.html);
                 }
             });
         }

@@ -104,10 +104,7 @@ class ReportController extends Controller
             </tr>
         </thead>
         <tbody>';
-        $total_late = 0;
-        $total_present = 0;
-        $total_absent = 0;
-        $total_weekend = 0;
+        $total_late = $total_present = $total_absent = $total_weekend = 0;
         foreach ($attendance_day as $key => $date) {
             $item = collect($attendance)->where('date', $date)->first();
             // print_r($item); die;
