@@ -84,6 +84,22 @@ $bank_name_array = [
     34 => 'NRB Commercial Bank'
 ];
 
+$month_array = [
+    1 => 'January',
+    2 => 'February',
+    3 => 'March',
+    4 => 'April',
+    5 => 'May',
+    6 => 'June',
+    7 => 'July',
+    8 => 'August',
+    9 => 'September',
+    10 => 'October',
+    11 => 'November',
+    12 => 'December',
+];
+
+
 // designations dropdown function
 function designations_dropdown($designation_array, $designation = null)
 {
@@ -163,3 +179,37 @@ function bank_names_dropdown($bank_name_array, $bank_name = null)
     $dropdown .= '</select>';
     return $dropdown;
 }
+
+// months dropdown function
+function months_dropdown($month_array, $month = null)
+{
+    $dropdown = '<select class="form-control" name="month" id="month">';
+    $dropdown .= '<option value="">Select Month</option>';
+    foreach ($month_array as $key => $value) {
+        if ($month == $key) {
+            $dropdown .= '<option value="' . $key . '" selected>' . $value . '</option>';
+        } else {
+            $dropdown .= '<option value="' . $key . '">' . $value . '</option>';
+        }
+    }
+    $dropdown .= '</select>';
+    return $dropdown;
+}
+
+// years dropdown function
+function years_dropdown($years_array, $year = null)
+{
+    $dropdown = '<select class="form-control" name="year" id="year">';
+    $dropdown .= '<option value="">Select Year</option>';
+    foreach ($years_array as $key => $value) {
+        if ($year == $key) {
+            $dropdown .= '<option value="' . $key . '" selected>' . $value . '</option>';
+        } else {
+            $dropdown .= '<option value="' . $key . '">' . $value . '</option>';
+        }
+    }
+    $dropdown .= '</select>';
+    return $dropdown;
+}
+
+?>

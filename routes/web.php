@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\AttendanceController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,16 @@ use Illuminate\Support\Facades\Route;
 # Employee panel routes
 Route::prefix('/employee')->name('employee.')->middleware(['auth:employee', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    # Attendance routes
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance');
     Route::get('/attendance/show', [AttendanceController::class, 'showAttendance'])->name('attendance.show');
-    // Route::get('/attendance/create', [DashboardController::class, 'createAttendance'])->name('attendance.create');
     Route::post('/attendance/store', [AttendanceController::class, 'storeAttendance'])->name('attendance.store');
+
+    # Report routes
+    Route::get('/report', [ReportController::class, 'index'])->name('report');
+    Route::post('/report/show', [ReportController::class, 'showReport'])->name('report.show');
+    Route::post('/report/store', [ReportController::class, 'storeReport'])->name('report.store');
 });
 
 # Admin panel routes

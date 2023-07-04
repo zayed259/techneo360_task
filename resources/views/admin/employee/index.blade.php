@@ -82,5 +82,9 @@ Employee List
 @endsection
 
 @section('script')
-
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
 @endsection

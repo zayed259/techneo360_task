@@ -66,8 +66,15 @@
             </li>
             <li class="nav-item @if (Request::segment(2) == 'attendance') active @endif">
                 <a class="nav-link" href="{{route('employee.attendance')}}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Attendance List</span>
+                    <i class="fas fa-fingerprint"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <!-- report  -->
+            <li class="nav-item @if (Request::segment(2) == 'report') active @endif">
+                <a class="nav-link" href="{{route('employee.report')}}">
+                    <i class="fas fa-flag"></i>
+                    <span>Report</span>
                 </a>
             </li>
             @endif
@@ -95,7 +102,11 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <h4 id="clock" class="text-primary font-weight-bold"></h4>
+                        </li>
+                    </ul>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
@@ -137,7 +148,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                    @yield('content')
+                @yield('content')
                 <!-- /.container-fluid -->
 
             </div>
@@ -197,15 +208,31 @@
     <script src="{{url('assets/js/script.js')}}"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+    </script>
+    <script>
+        function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            hours = hours < 10 ? '0' + hours : hours;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var time = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+            document.getElementById('clock').textContent = time;
+        }
+        setInterval(updateTime, 1000);
     </script>
     <script>
         @if(Session::has('message'))

@@ -20,7 +20,6 @@ Attendance List
 
         </div>
         <div class="card-body">
-            <!-- table  -->
             <div class="table-responsive" id="showAllRecords">
                 <table class="table table-bordered border-primary table-hover text-center" id="" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
