@@ -46,13 +46,13 @@ Add Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="designation">Designation</label>
-                        {!! designations_dropdown($designation_array) !!}
+                        {!! designationsDropdown() !!}
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 pb-2">
                         <label for="department">Department</label>
-                        {!! departments_dropdown($department_array) !!}
+                        {!! departmentsDropdown() !!}
                     </div>
                     <div class="col-md-6">
                         <label for="joining_date">Joining Date</label>
@@ -66,7 +66,7 @@ Add Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="bank_name">Bank Name</label>
-                        {!! bank_names_dropdown($bank_name_array) !!}
+                        {!! bankNamesDropdown() !!}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -76,13 +76,13 @@ Add Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="blood_group">Blood Group</label>
-                        {!! blood_groups_dropdown($blood_group_array) !!}
+                        {!! bloodGroupsDropdown() !!}
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 pb-2">
                         <label for="marital_status">Marital Status</label>
-                        {!! marital_statuses_dropdown($marital_status_array) !!}
+                        {!! maritalStatusesDropdown() !!}
                     </div>
                 </div>
                 <div class="form-group">

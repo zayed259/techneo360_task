@@ -47,13 +47,13 @@ Edit Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="designation">Designation</label>
-                        {!! designations_dropdown($designation_array, $employee_details->designation) !!}
+                        {!! designationsDropdown($employee_details->designation) !!}
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 pb-2">
                         <label for="department">Department</label>
-                        {!! departments_dropdown($department_array, $employee_details->department) !!}
+                        {!! departmentsDropdown($employee_details->department) !!}
                     </div>
                     <div class="col-md-6">
                         <label for="joining_date">Joining Date</label>
@@ -67,7 +67,7 @@ Edit Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="bank_name">Bank Name</label>
-                        {!! bank_names_dropdown($bank_name_array, $employee_details->bank_name) !!}
+                        {!! bankNamesDropdown($employee_details->bank_name) !!}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -77,13 +77,13 @@ Edit Employee Details
                     </div>
                     <div class="col-md-6">
                         <label for="blood_group">Blood Group</label>
-                        {!! blood_groups_dropdown($blood_group_array, $employee_details->blood_group) !!}
+                        {!! bloodGroupsDropdown($employee_details->blood_group) !!}
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 pb-2">
                         <label for="marital_status">Marital Status</label>
-                        {!! marital_statuses_dropdown($marital_status_array, $employee_details->marital_status) !!}
+                        {!! maritalStatusesDropdown($employee_details->marital_status) !!}
                     </div>
                     <div class="col-md-6">
                         <label for="photo" class="mr-4">Photo</label>
