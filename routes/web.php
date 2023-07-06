@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\AttendanceController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\Employee\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
