@@ -14,7 +14,7 @@ Attendance List
                     Attendence Here
                     <i class="fas fa-hand-point-right"></i>
                 </h6>
-                <button class="btn btn-primary btn-sm" title="Push Button For Attendance" id="attendanceButton"><i class="fas fa-fingerprint"></i></button>
+                <button class="btn btn-primary btn-sm" title="Press and hold 3 seconds" id="attendanceButton"><i class="fas fa-fingerprint"></i></button>
                 <input type="hidden" name="employee_id" value="{{ Auth::guard('employee')->user()->id }}" id="employee_id">
             </div>
 
@@ -32,7 +32,15 @@ Attendance List
 @section('script')
 <script>
     $(document).ready(function() {
-        $('#attendanceButton').on('click', function() {
+        var buttonPressTimer;
+        $('#attendanceButton').on('mousedown', function() {
+            buttonPressTimer = setTimeout(submitForm, 3000);
+
+        }).on('mouseup', function() {
+            clearTimeout(buttonPressTimer);
+        });
+
+        function submitForm() {
             const employee_id = $('#employee_id').val();
             $.ajax({
                 url: "{{ route('employee.attendance.store') }}",
@@ -78,7 +86,7 @@ Attendance List
                     });
                 }
             });
-        });
+        }
 
         //showAllRecords
         showAllRecords();
