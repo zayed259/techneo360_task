@@ -12,29 +12,12 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $month_array = [
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
-            '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
-            '09' => 'September',
-            '10' => 'October',
-            '11' => 'November',
-            '12' => 'December',
-        ];
-
-        $last10YearsArray = range(date('Y'), date('Y') - 10);
-        $years_array = array_combine($last10YearsArray, $last10YearsArray);
-
-        return view('employee.report')->with(compact(['month_array', 'years_array']));
+        return view('employee.report');
     }
 
     public function showReport(Request $request)
     {
+        $searchOption = $request->searchOption;
         $year = $request->year;
         $month = $request->month;
         if ($month) {
@@ -52,27 +35,34 @@ class ReportController extends Controller
         $employee_id = Auth::guard('employee')->user()->id;
 
         $condition = "";
-        if ($year == '' && $month == '' && $from_date == '' && $to_date == '') {
-            return response()->json(['status' => 'error', 'message' => 'Please select year and month, or from date and to date.']);
-        }
-        if ($year != '' && $month == '' && $from_date == '' && $to_date == '') {
-            return response()->json(['status' => 'error', 'message' => 'Please select month']);
-        }
-        if ($year != '' && $month != '') {
-            $condition = " and year(created_at) = '" . $year . "' and month(created_at) = '" . $month . "'";
-        }
-        if ($year == '' && $month != '' && $from_date == '' && $to_date == '') {
-            return response()->json(['status' => 'error', 'message' => 'Please select year']);
-        }
-        if ($year == '' && $month == '' && $from_date != '' && $to_date == '') {
-            return response()->json(['status' => 'error', 'message' => 'Please select to date']);
-        }
-        if ($year == '' && $month == '' && $from_date == '' && $to_date != '') {
-            return response()->json(['status' => 'error', 'message' => 'Please select from date']);
-        }
-
-        if ($from_date != '' && $to_date != '') {
-            $condition = " and date(created_at) between '" . $from_date . "' and '" . $to_date . "'";
+        if($searchOption == 1) {
+            if ($year == '' && $month == '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select year and month.']);
+            }
+            if ($year != '' && $month == '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select month']);
+            }
+            if ($year == '' && $month != '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select year']);
+            }
+            if ($year != '' && $month != '') {
+                $condition = " and year(created_at) = '" . $year . "' and month(created_at) = '" . $month . "'";
+            }
+        } elseif($searchOption == 2) {
+            if ($from_date == '' && $to_date == '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select from date and to date.']);
+            }
+            if ($from_date != '' && $to_date == '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select to date']);
+            }
+            if ($from_date == '' && $to_date != '') {
+                return response()->json(['status' => 'error', 'message' => 'Please select from date']);
+            }
+            if ($from_date != '' && $to_date != '') {
+                $condition = " and date(created_at) between '" . $from_date . "' and '" . $to_date . "'";
+            }
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Please select search option.']);
         }
 
         $attendance = DB::select("SELECT id, employee_id, date(created_at) as date, created_at, updated_at from employee_attendances where employee_id = '" . $employee_id . "' " . $condition . " order by created_at desc");

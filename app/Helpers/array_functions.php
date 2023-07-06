@@ -180,13 +180,25 @@ function bank_names_dropdown($bank_name_array, $bank_name = null)
     return $dropdown;
 }
 
-// months dropdown function
-function months_dropdown($month_array, $month = null)
+// searchOption dropdown function
+function searchOptionDropdown($searchOption = null)
 {
-    $dropdown = '<select class="form-control" name="month" id="month">';
-    $dropdown .= '<option value="">Select Month</option>';
-    foreach ($month_array as $key => $value) {
-        if ($month == $key) {
+    $dropdown = '<select class="form-control" name="searchOption" id="searchOption">';
+    $dropdown .= '<option value="">Select Option</option>';
+    $dropdown .= '<option value="1" ' . ($searchOption == 1 ? 'selected' : '') . '>Year & Month Wise</option>';
+    $dropdown .= '<option value="2" ' . ($searchOption == 2 ? 'selected' : '') . '>From Date & To Date Wise</option>';
+    $dropdown .= '</select>';
+    return $dropdown;
+}
+
+// year dropdown function
+function yearsDropdown($year = null)
+{
+    $years_array = array_combine((range(date('Y'), date('Y') - 10)),(range(date('Y'), date('Y') - 10)));
+    $dropdown = '<select class="form-control" name="year" id="year">';
+    $dropdown .= '<option value="">Select Option</option>';
+    foreach ($years_array as $key => $value) {
+        if ($year == $key) {
             $dropdown .= '<option value="' . $key . '" selected>' . $value . '</option>';
         } else {
             $dropdown .= '<option value="' . $key . '">' . $value . '</option>';
@@ -196,13 +208,27 @@ function months_dropdown($month_array, $month = null)
     return $dropdown;
 }
 
-// years dropdown function
-function years_dropdown($years_array, $year = null)
+//months dropdown function
+function monthsDropdown($month = null)
 {
-    $dropdown = '<select class="form-control" name="year" id="year">';
-    $dropdown .= '<option value="">Select Year</option>';
-    foreach ($years_array as $key => $value) {
-        if ($year == $key) {
+    $monthArray = [
+        '01' => 'January',
+        '02' => 'February',
+        '03' => 'March',
+        '04' => 'April',
+        '05' => 'May',
+        '06' => 'June',
+        '07' => 'July',
+        '08' => 'August',
+        '09' => 'September',
+        '10' => 'October',
+        '11' => 'November',
+        '12' => 'December',
+    ];
+    $dropdown = '<select class="form-control" name="month" id="month">';
+    $dropdown .= '<option value="">Select Option</option>';
+    foreach ($monthArray as $key => $value) {
+        if ($month == $key) {
             $dropdown .= '<option value="' . $key . '" selected>' . $value . '</option>';
         } else {
             $dropdown .= '<option value="' . $key . '">' . $value . '</option>';

@@ -11,28 +11,34 @@ Attendance Report
             <h6 class="m-0 font-weight-bold text-primary float-left mt-2">Attendance Report</h6>
         </div>
         <div class="card-body">
-            <div class="form-group row">
-                <div class="col-sm-3">
-                    <label for="year">Year</label>
-                    {!! years_dropdown($years_array) !!}
+            <form id="reportForm">
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label for="searchOption">Search Option</label>
+                        {!! searchOptionDropdown() !!}
+                    </div>
+                    <div class="col-sm-3 hide" id="yearDiv">
+                        <label for="year">Year</label>
+                        {!! yearsDropdown() !!}
+                    </div>
+                    <div class="col-sm-3 hide" id="monthDiv">
+                        <label for="month">Month</label>
+                        {!! monthsDropdown() !!}
+                    </div>
+                    <div class="col-sm-3 hide" id="fromDateDiv">
+                        <label for="from_date">From Date</label>
+                        <input type="date" name="from_date" id="from_date" class="form-control">
+                    </div>
+                    <div class="col-sm-3 mb-2 hide" id="toDateDiv">
+                        <label for="to_date">To Date</label>
+                        <input type="date" name="to_date" id="to_date" class="form-control">
+                    </div>
+                    <div class="col-sm-3 hide" id="searchDiv">
+                        <input type="reset" class="btn btn-danger btn-sm btn-block" value="Reset" id="resetBtn">
+                        <a class="btn btn-sm btn-primary btn-profile btn-block" id="show">Show</a>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <label for="month">Month</label>
-                    {!! months_dropdown($month_array) !!}
-                </div>
-                <div class="col-sm-2">
-                    <label for="from_date">From Date</label>
-                    <input type="date" name="from_date" id="from_date" class="form-control">
-                </div>
-                <div class="col-sm-2 mb-2">
-                    <label for="to_date">To Date</label>
-                    <input type="date" name="to_date" id="to_date" class="form-control">
-                </div>
-                <div class="col-sm-2">
-                    <input type="reset" class="btn btn-danger btn-sm btn-block" value="Reset">
-                    <a class="btn btn-sm btn-primary btn-profile btn-block" id="show">Show</a>
-                </div>
-            </div>
+            </form>
         </div>
         <hr class="m-0 p-0">
         <div class="card-body">
@@ -47,7 +53,9 @@ Attendance Report
 @section('script')
 <script>
     $(document).ready(function() {
+        // show attendance
         $('#show').on('click', function() {
+            const searchOption = $('#searchOption').val();
             const year = $('#year').val();
             const month = $('#month').val();
             const from_date = $('#from_date').val();
@@ -56,6 +64,7 @@ Attendance Report
                 url: "{{ route('employee.report.show') }}",
                 type: "POST",
                 data: {
+                    searchOption,
                     year,
                     month,
                     from_date,
@@ -93,26 +102,84 @@ Attendance Report
             });
         });
 
-        // search panel enable disable
-        $('#month').attr('disabled', true);
-        $('#year').on('change', function() {
-            if ($(this).val() != '') {
-                $('#month').attr('disabled', false);
-                $('#from_date').attr('disabled', true);
-            } else {
+        // search option change event
+        $('#searchOption').on('change', function() {
+            const searchOption = $(this).val();
+            if (searchOption == 1) {
+                $('#yearDiv').show();
+                $('#monthDiv').show();
+                $('#from_date').val('');
+                $('#to_date').val('');
                 $('#month').attr('disabled', true);
-                $('#from_date').attr('disabled', false);
+                $('#to_date').attr('disabled', true);
+                $('#fromDateDiv').hide();
+                $('#toDateDiv').hide();
+                $('#searchDiv').show();
+            } else if (searchOption == 2) {
+                $('#yearDiv').hide();
+                $('#monthDiv').hide();
+                $('#year').val('');
+                $('#month').val('');
+                $('#month').attr('disabled', true);
+                $('#to_date').attr('disabled', true);
+                $('#fromDateDiv').show();
+                $('#toDateDiv').show();
+                $('#searchDiv').show();
+            } else {
+                $('#from_date').val('');
+                $('#to_date').val('');
+                $('#year').val('');
+                $('#month').val('');
+                $('#month').attr('disabled', true);
+                $('#to_date').attr('disabled', true);
+                $('#yearDiv').hide();
+                $('#monthDiv').hide();
+                $('#fromDateDiv').hide();
+                $('#toDateDiv').hide();
+                $('#searchDiv').hide();
+                $('#showResults').html('');
             }
         });
+
+        //year change event
+        $('#month').attr('disabled', true);
+        $('#year').on('change', function() {
+            const year = $(this).val();
+            if (year != '') {
+                $('#month').attr('disabled', false);
+            } else {
+                $('#month').attr('disabled', true);
+                $('#month').val('');
+            }
+        });
+
+        //from date change event
         $('#to_date').attr('disabled', true);
         $('#from_date').on('change', function() {
-            if ($(this).val() != '') {
-                $('#year').attr('disabled', true);
+            const from_date = $(this).val();
+            if (from_date != '') {
                 $('#to_date').attr('disabled', false);
             } else {
-                $('#year').attr('disabled', false);
                 $('#to_date').attr('disabled', true);
+                $('#to_date').val('');
             }
+        });
+
+        //reset button click event
+        $('#resetBtn').on('click', function() {
+            $('#searchOption').val('');
+            $('#year').val('');
+            $('#month').val('');
+            $('#from_date').val('');
+            $('#to_date').val('');
+            $('#month').attr('disabled', true);
+            $('#to_date').attr('disabled', true);
+            $('#yearDiv').hide();
+            $('#monthDiv').hide();
+            $('#fromDateDiv').hide();
+            $('#toDateDiv').hide();
+            $('#searchDiv').hide();
+            $('#showResults').html('');
         });
     });
 </script>
