@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Employee\AttendanceController;
 use App\Http\Controllers\Employee\ReportController;
+use App\Http\Controllers\Admin\ReportController as AdminReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,10 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth:admin', 'verified'])-
     Route::get('/employee_contacts/{id}/edit', [EmployeeController::class, 'editEmployeeContact'])->name('employee_contacts.edit');
     Route::put('/employee_contacts/{id}', [EmployeeController::class, 'updateEmployeeContact'])->name('employee_contacts.update');
 
-
+    # Report routes
+    Route::get('/report', [AdminReportController::class, 'index'])->name('report');
+    Route::post('/report/show', [AdminReportController::class, 'showReport'])->name('report.show');
+    Route::post('/report/store', [AdminReportController::class, 'storeReport'])->name('report.store');
 });
 
 Route::get('/', function () {

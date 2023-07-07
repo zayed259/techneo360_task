@@ -57,6 +57,13 @@
                     <span>Employee List</span>
                 </a>
             </li>
+            <!-- report  -->
+            <li class="nav-item @if (Request::segment(2) == 'report') active @endif">
+                <a class="nav-link" href="{{route('admin.report')}}">
+                    <i class="fas fa-flag"></i>
+                    <span>Report</span>
+                </a>
+            </li>
             @elseif (Auth::guard('employee')->check())
             <li class="nav-item @if (Request::segment(2) == 'dashboard') active @endif">
                 <a class="nav-link" href="{{route('employee.dashboard')}}">
