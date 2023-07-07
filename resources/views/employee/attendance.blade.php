@@ -8,12 +8,15 @@ Attendance List
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary float-left mt-2">Attendance List</h6>
+            <h6 class="m-0 font-weight-bold text-primary float-left mt-2 attendanceList">Attendance List</h6>
             <div class="float-right d-flex">
                 <h6 class="m-0 font-weight-bold text-primary mr-3 mt-2 attendanceHere">
                     Attendence Here
                     <i class="fas fa-hand-point-right"></i>
                 </h6>
+                <div class="progress mb-2 mr-2">
+                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
                 <button class="btn btn-primary btn-sm" title="Press and hold 3 seconds" id="attendanceButton"><i class="fas fa-fingerprint"></i></button>
                 <input type="hidden" name="employee_id" value="{{ Auth::guard('employee')->user()->id }}" id="employee_id">
             </div>
@@ -35,9 +38,10 @@ Attendance List
         var buttonPressTimer;
         $('#attendanceButton').on('mousedown', function() {
             buttonPressTimer = setTimeout(submitForm, 3000);
-
+            $('.progress-bar').css('width', '100%');
         }).on('mouseup', function() {
             clearTimeout(buttonPressTimer);
+            $('.progress-bar').css('width', '0%');
         });
 
         function submitForm() {
@@ -73,6 +77,7 @@ Attendance List
                             timer: 1500
                         });
                     }
+                    $('.progress-bar').css('width', '0%');
                     showAllRecords();
                 },
                 error: function(response) {
@@ -84,6 +89,7 @@ Attendance List
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    $('.progress-bar').css('width', '0%');
                 }
             });
         }
