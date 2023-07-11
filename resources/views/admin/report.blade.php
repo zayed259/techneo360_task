@@ -53,6 +53,11 @@ Employee Report
 @section('script')
 <script>
     $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function() {
         // show attendance
         $('#show').on('click', function() {
             const searchOption = $('#searchOption').val();
