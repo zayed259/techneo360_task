@@ -13290,6 +13290,9 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }
 
+.userDropdownDiv {
+  z-index: 100000;
+}
 
 #attendanceButton {
   animation: pulse 1s infinite;

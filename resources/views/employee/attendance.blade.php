@@ -36,10 +36,10 @@ Attendance List
 <script>
     $(document).ready(function() {
         var buttonPressTimer;
-        $('#attendanceButton').on('mousedown', function() {
+        $('#attendanceButton').on('mousedown touchstart', function() {
             buttonPressTimer = setTimeout(submitForm, 3000);
             $('.progress-bar').css('width', '100%');
-        }).on('mouseup', function() {
+        }).on('mouseup touchend', function() {
             clearTimeout(buttonPressTimer);
             $('.progress-bar').css('width', '0%');
         });
